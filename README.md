@@ -39,3 +39,4 @@ npm start
 ## Amélioration
 
 Je dois trouver le moyen de charger toute la data avec la séléction 'all' ou 'United' sans faire crasher l'application quand elle est en ligne. Je dois également trouver le moyen de rendre cette action plus rapide localement. Il faudrait que je puisse chercher la donnée d'un pays sans devoir écrire son nom exact dans la recherche. Je dois régler les problèmes d'affichages du graphique recharts qui fonctionne mal selon les pays.
+# ecommerce-dashboard-prod
