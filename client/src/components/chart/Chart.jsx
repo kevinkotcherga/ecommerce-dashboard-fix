@@ -45,22 +45,25 @@ const Chart = ({ array }) => {
   const removeCommaFromArray = revenuePerMonth.map(item => {
     const months = item[0];
     // toFixed(2) ne laisse que deux chiffres après la virgule à la valeur
-    const removeCommaFromNumber = item[1].toFixed(0);
+    const removeCommaFromNumber = Math.trunc(item[1]);
 
-  /*  Cette fonction m'aurait permis de séparer les montants par des virgules pour
-   plus de visibilité mais le graphique ne comprend pas cette option : */
+    // const internationalNumberFormat = new Intl.NumberFormat('en-US')
+    // const commas = internationalNumberFormat.format(removeCommaFromNumber)
 
-  /* function numberWithCommas(number) {
-    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  }
-  const removeComaWithcoma = numberWithCommas(removeCommaFromNumber)
-   */
+    // console.log(commas)
+    /*  Cette fonction m'aurait permis de séparer les montants par des virgules pour
+    plus de visibilité mais le graphique ne comprend pas cette option : */
 
+    // function numberWithCommas(number) {
+    //   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    // }
+
+    // const removed = numberWithCommas(removeCommaFromNumber)
     return [months, removeCommaFromNumber]
   })
 
   return (
-    <ResponsiveContainer height="100%" aspect={3}>
+    <ResponsiveContainer aspect={3}>
       <BarChart
         width={500}
         height={300}
