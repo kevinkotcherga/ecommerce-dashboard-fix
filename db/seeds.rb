@@ -1,0 +1,3 @@
+Note.create(title: "Ruby is amazing", content: "I learned how to build an ORM and use a database with a mix of SQL and Ruby")
+Note.create(title: "React is a great and dynamic front end technology", content: "Now I know how to build a full stack application using Rails for backend and React for the frontend")
+Note.create(title: "Deploying today", content: "Today I am learning how to deploy an application to the web")

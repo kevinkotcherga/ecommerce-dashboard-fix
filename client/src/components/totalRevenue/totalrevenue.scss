@@ -1,0 +1,26 @@
+.total {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  padding: 20px;
+  -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+  box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+  border-radius: 10px;
+  height: 15vh;
+  width: 25vw;
+  background-color: #ffffff;
+
+
+  .total__title {
+    font-size: 3.5vh;
+    font-weight: 500;
+    color: #262A32;
+  }
+  .total__counter {
+    font-size: 4vh;
+    font-weight: 600;
+    color: #124D81;
+  }
+}

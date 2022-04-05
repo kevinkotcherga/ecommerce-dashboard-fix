@@ -1,0 +1,12 @@
+.header {
+  height: 60px;
+  background-color: #ffffff;
+  color: #262A32;
+  h1 {
+    font-size: 3vh;
+    margin-left: 30px;
+    position: relative;
+    top: 50%;
+    transform: perspective(1px) translateY(-50%);
+  }
+}

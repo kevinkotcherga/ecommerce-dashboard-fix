@@ -1,0 +1,41 @@
+.home {
+  background-color: #f8f9fa;
+
+
+  .home__country {
+    margin: 30px 0px;
+    .home__label {
+      font-size: 3vh;
+      font-weight: 600;
+      margin: 0px 20px 0px 30px;
+      color: #323232;
+    }
+  }
+
+  .home__summary {
+    margin-top: 50px;
+    .home__title {
+      font-size: 3vh;
+      font-weight: 600;
+      color: #323232;
+      margin-left: 30px;
+    }
+    .home__widgets {
+      display: flex;
+      justify-content: space-around;
+      margin: 60px 0px 100px 0px;
+    }
+  }
+
+  .home__chart {
+    .home__title {
+      font-size: 3vh;
+      font-weight: 600;
+      color: #323232;
+      margin-left: 30px;
+    }
+    .home__graphique {
+      margin-top: 50px;
+    }
+  }
+}
