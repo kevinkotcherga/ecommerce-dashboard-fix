@@ -8,4 +8,8 @@ class OrdersController < ApplicationController
     # perfom_async permet de transmettre les données à Redis
     AddOrderWorker.perform_async(csv_file)
   end
+
+  def list_of_country
+    render json: Order.list_of_country
+  end
 end

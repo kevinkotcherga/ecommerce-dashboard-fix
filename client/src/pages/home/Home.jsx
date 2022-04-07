@@ -47,6 +47,21 @@ const Home = () => {
   // Si rien n'est contenu dans filteredCountries alors le tableau est vide et ne créer pas d'erreurs
   const array = filteredCountries || [];
 
+  const [listCountry, setListCountry] = useState([]);
+
+  useEffect(() => {
+    const getListOfCountry = async () => {
+      try {
+        // Axios appelle l'api de recherche et lui donne la valeur d'un pays sélectionné si elle existe
+        // const response = await axios.get(country === 'All' ? '/search.json' : `/search.json?q=${country}`);
+        const response = await axios.get('/orders/list_of_country');
+        // La donnée récupérée par axios est stocké dans setFilteredCountries
+        setListCountry(response.data)
+      } catch (err) {}
+    };
+    getListOfCountry();
+  }, []);
+
   return (
     <div className='home'>
       <Header />
@@ -56,13 +71,10 @@ const Home = () => {
           <Option defaultValue >
             All
           </Option>
-          <Option>Netherlands</Option>
-          <Option>France</Option>
-          <Option>Norway</Option>
-          <Option>Germany</Option>
-          <Option>Australia</Option>
-          <Option>Eire</Option>
-          <Option>United Kingdom</Option>
+          {
+          listCountry.map((item, key) =>
+          <Option key={key}>{item}</Option>)
+          }
         </Select>
       </div>
       <div className="home__summary">
