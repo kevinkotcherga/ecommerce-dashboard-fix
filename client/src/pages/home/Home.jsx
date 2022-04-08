@@ -52,10 +52,7 @@ const Home = () => {
   useEffect(() => {
     const getListOfCountry = async () => {
       try {
-        // Axios appelle l'api de recherche et lui donne la valeur d'un pays sélectionné si elle existe
-        // const response = await axios.get(country === 'All' ? '/search.json' : `/search.json?q=${country}`);
         const response = await axios.get('/orders/list_of_country');
-        // La donnée récupérée par axios est stocké dans setFilteredCountries
         setListCountry(response.data)
       } catch (err) {}
     };
