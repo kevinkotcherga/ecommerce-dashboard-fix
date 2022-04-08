@@ -1,20 +1,13 @@
+# frozen_string_literal: true
+
+# app/models/order.rb
 class Order < ApplicationRecord
   def self.revenue
-    total = sum do |order|
-      order.quantity * order.unit_price
-    end
-    total.round(2)
+    sum("quantity * unit_price").round(2)
   end
 
   def self.average_revenue_per_order
-    total = sum do |order|
-      order.quantity * order.unit_price
-    end
-    orders = []
-    all.each do |order|
-      orders << order.order_id
-    end
-    (total.round(2) / orders.uniq.count).round(2)
+    (revenue / distinct.count(:order_id)).round(2)
   end
 
   def self.list_of_country
@@ -48,6 +41,15 @@ class Order < ApplicationRecord
     SQL
     ActiveRecord::Base.connection.execute(sql).to_a.map do |revenue_row|
       revenue_row['sum'].round(2)
+    end
+  end
+
+  def self.average_revenu_per_order_sql
+    sql = <<-SQL
+     (SELECT SUM(unit_price * quantity) FROM orders / SELECT order_id.uniq.count FROM orders)
+    SQL
+    ActiveRecord::Base.connection.execute(sql).to_a.map do |average|
+      average
     end
   end
 end
