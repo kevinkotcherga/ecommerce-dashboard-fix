@@ -11,11 +11,7 @@ class Order < ApplicationRecord
   end
 
   def self.list_of_country
-    list_country = []
-    all.each do |country|
-      list_country << country.country
-    end
-    list_country.uniq
+    distinct(:country)
   end
 
   def self.customers
@@ -46,7 +42,7 @@ class Order < ApplicationRecord
 
   def self.average_revenu_per_order_sql
     sql = <<-SQL
-     (SELECT SUM(unit_price * quantity) FROM orders / SELECT order_id.uniq.count FROM orders)
+     SELECT DISTINCT(order_id).count FROM orders
     SQL
     ActiveRecord::Base.connection.execute(sql).to_a.map do |average|
       average
