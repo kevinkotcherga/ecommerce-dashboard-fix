@@ -20,7 +20,7 @@ const Option = styled.option`
 const Home = () => {
 
   // setCountry récupère la valeur du pays sélectionné dans handleFilters()
-  const [country, setCountry] = useState({});
+  const [country, setCountry] = useState('');
   // À chaque changement d'option du Select, handleFilters récupère l'information du pays choisi
   const handleFilters = (element) => {
     const value = element.target.value;
@@ -31,6 +31,7 @@ const Home = () => {
   // setFilteredCountries récupère la data filtré par pays dans getCountries()
   const [filteredCountries, setFilteredCountries] = useState([]);
 
+  // useEffect permet de lancer une action sans return, comme la notification d'ajout à un panier
   useEffect(() => {
     const getCountries = async () => {
       try {
@@ -42,6 +43,7 @@ const Home = () => {
       } catch (err) {}
     };
     getCountries();
+    // useEffect s'executera seulement quand country changera
   }, [country]);
 
   // Si rien n'est contenu dans filteredCountries alors le tableau est vide et ne créer pas d'erreurs
